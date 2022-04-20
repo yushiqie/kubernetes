@@ -400,7 +400,7 @@ func (c completedConfig) New(delegationTarget genericapiserver.DelegationTarget)
 	if c.ExtraConfig.APIResourceConfigSource.VersionEnabled(apiv1.SchemeGroupVersion) {
 		legacyRESTStorageProvider := corerest.LegacyRESTStorageProvider{
 			StorageFactory:              c.ExtraConfig.StorageFactory,
-			ProxyTransport:              c.ExtraConfig.ProxyTransport,
+			//ProxyTransport:              c.ExtraConfig.ProxyTransport,
 			KubeletClientConfig:         c.ExtraConfig.KubeletClientConfig,
 			EventTTL:                    c.ExtraConfig.EventTTL,
 			ServiceIPRange:              c.ExtraConfig.ServiceIPRange,

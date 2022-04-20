@@ -25,7 +25,6 @@ import (
 	serverstorage "k8s.io/apiserver/pkg/server/storage"
 	"k8s.io/kubernetes/pkg/api/legacyscheme"
 	"k8s.io/kubernetes/pkg/apis/admissionregistration"
-	mutatingwebhookconfigurationstorage "k8s.io/kubernetes/pkg/registry/admissionregistration/mutatingwebhookconfiguration/storage"
 	validatingwebhookconfigurationstorage "k8s.io/kubernetes/pkg/registry/admissionregistration/validatingwebhookconfiguration/storage"
 )
 
@@ -63,11 +62,11 @@ func (p RESTStorageProvider) v1beta1Storage(apiResourceConfigSource serverstorag
 	storage["validatingwebhookconfigurations"] = validatingStorage
 
 	// mutatingwebhookconfigurations
-	mutatingStorage, err := mutatingwebhookconfigurationstorage.NewREST(restOptionsGetter)
-	if err != nil {
-		return storage, err
-	}
-	storage["mutatingwebhookconfigurations"] = mutatingStorage
+	//mutatingStorage, err := mutatingwebhookconfigurationstorage.NewREST(restOptionsGetter)
+	//if err != nil {
+	//	return storage, err
+	//}
+	//storage["mutatingwebhookconfigurations"] = mutatingStorage
 
 	return storage, err
 }
@@ -82,11 +81,11 @@ func (p RESTStorageProvider) v1Storage(apiResourceConfigSource serverstorage.API
 	storage["validatingwebhookconfigurations"] = validatingStorage
 
 	// mutatingwebhookconfigurations
-	mutatingStorage, err := mutatingwebhookconfigurationstorage.NewREST(restOptionsGetter)
-	if err != nil {
-		return storage, err
-	}
-	storage["mutatingwebhookconfigurations"] = mutatingStorage
+	//mutatingStorage, err := mutatingwebhookconfigurationstorage.NewREST(restOptionsGetter)
+	//if err != nil {
+	//	return storage, err
+	//}
+	//storage["mutatingwebhookconfigurations"] = mutatingStorage
 
 	return storage, err
 }

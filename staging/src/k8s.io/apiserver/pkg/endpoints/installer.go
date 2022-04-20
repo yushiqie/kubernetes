@@ -89,7 +89,7 @@ var toDiscoveryKubeVerb = map[string]string{
 	"LIST":             "list",
 	"PATCH":            "patch",
 	"POST":             "create",
-	"PROXY":            "proxy",
+	//"PROXY":            "proxy",
 	"PUT":              "update",
 	"WATCH":            "watch",
 	"WATCHLIST":        "watch",

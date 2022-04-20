@@ -96,7 +96,7 @@ var AllOrderedPlugins = []string{
 	// new admission plugins should generally be inserted above here
 	// webhook, resourcequota, and deny plugins must go at the end
 
-	mutatingwebhook.PluginName,   // MutatingAdmissionWebhook
+	//mutatingwebhook.PluginName,   // MutatingAdmissionWebhook
 	validatingwebhook.PluginName, // ValidatingAdmissionWebhook
 	resourcequota.PluginName,     // ResourceQuota
 	deny.PluginName,              // AlwaysDeny

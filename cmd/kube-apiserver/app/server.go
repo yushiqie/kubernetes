@@ -209,15 +209,18 @@ func Run(completeOptions completedServerRunOptions, stopCh <-chan struct{}) erro
 
 // CreateServerChain creates the apiservers connected via delegation.
 func CreateServerChain(completedOptions completedServerRunOptions, stopCh <-chan struct{}) (*aggregatorapiserver.APIAggregator, error) {
-	nodeTunneler, proxyTransport, err := CreateNodeDialer(completedOptions)
-	if err != nil {
-		return nil, err
-	}
-
-	if DefaultProxyDialerFn != nil {
-		completedOptions.KubeletConfig.Dial = DefaultProxyDialerFn
-		completedOptions.KubeletConfig.Proxy = http.ProxyURL(nil)
-	}
+	// set nil nodeTunneler proxyTransport
+	var nodeTunneler tunneler.Tunneler
+	var proxyTransport *http.Transport
+	nodeTunneler, proxyTransport = nil, nil
+	//nodeTunneler, proxyTransport, err := CreateNodeDialer(completedOptions)
+	//if err != nil {
+	//	return nil, err
+	//}
+	//if DefaultProxyDialerFn != nil {
+	//	completedOptions.KubeletConfig.Dial = DefaultProxyDialerFn
+	//	completedOptions.KubeletConfig.Proxy = http.ProxyURL(nil)
+	//}
 
 	kubeAPIServerConfig, serviceResolver, pluginInitializer, err := CreateKubeAPIServerConfig(completedOptions, nodeTunneler, proxyTransport)
 	if err != nil {

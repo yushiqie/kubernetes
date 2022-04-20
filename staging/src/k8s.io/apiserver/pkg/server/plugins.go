@@ -20,7 +20,6 @@ package server
 import (
 	"k8s.io/apiserver/pkg/admission"
 	"k8s.io/apiserver/pkg/admission/plugin/namespace/lifecycle"
-	mutatingwebhook "k8s.io/apiserver/pkg/admission/plugin/webhook/mutating"
 	validatingwebhook "k8s.io/apiserver/pkg/admission/plugin/webhook/validating"
 )
 
@@ -28,5 +27,5 @@ import (
 func RegisterAllAdmissionPlugins(plugins *admission.Plugins) {
 	lifecycle.Register(plugins)
 	validatingwebhook.Register(plugins)
-	mutatingwebhook.Register(plugins)
+	//mutatingwebhook.Register(plugins)
 }

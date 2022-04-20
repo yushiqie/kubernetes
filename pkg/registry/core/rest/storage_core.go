@@ -258,7 +258,7 @@ func (c LegacyRESTStorageProvider) NewLegacyRESTStorage(restOptionsGetter generi
 		return LegacyRESTStorage{}, genericapiserver.APIGroupInfo{}, err
 	}
 
-	serviceRest, serviceRestProxy := servicestore.NewREST(serviceRESTStorage,
+	serviceRest, _ := servicestore.NewREST(serviceRESTStorage,
 		endpointsStorage,
 		podStorage.Pod,
 		serviceClusterIPAllocator,
@@ -268,12 +268,12 @@ func (c LegacyRESTStorageProvider) NewLegacyRESTStorage(restOptionsGetter generi
 
 	restStorageMap := map[string]rest.Storage{
 		"pods":             podStorage.Pod,
-		"pods/attach":      podStorage.Attach,
+		//"pods/attach":      podStorage.Attach,
 		"pods/status":      podStorage.Status,
 		"pods/log":         podStorage.Log,
-		"pods/exec":        podStorage.Exec,
-		"pods/portforward": podStorage.PortForward,
-		"pods/proxy":       podStorage.Proxy,
+		//"pods/exec":        podStorage.Exec,
+		//"pods/portforward": podStorage.PortForward,
+		//"pods/proxy":       podStorage.Proxy,
 		"pods/binding":     podStorage.Binding,
 		"bindings":         podStorage.LegacyBinding,
 
@@ -283,14 +283,14 @@ func (c LegacyRESTStorageProvider) NewLegacyRESTStorage(restOptionsGetter generi
 		"replicationControllers/status": controllerStorage.Status,
 
 		"services":        serviceRest,
-		"services/proxy":  serviceRestProxy,
+		//"services/proxy":  serviceRestProxy,
 		"services/status": serviceStatusStorage,
 
 		"endpoints": endpointsStorage,
 
 		"nodes":        nodeStorage.Node,
 		"nodes/status": nodeStorage.Status,
-		"nodes/proxy":  nodeStorage.Proxy,
+		//"nodes/proxy":  nodeStorage.Proxy,
 
 		"events": eventStorage,
 
